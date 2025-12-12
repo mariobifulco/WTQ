@@ -28,7 +28,7 @@ You can specify the maximum dimension of the **bonds** (the links between the ne
 
 If the required bond dimension is too large, the calculation is often truncated using **Singular Value Decomposition (SVD)**.
 
-![TTN](https://www.researchgate.net/publication/369332982/figure/fig4/AS:11431281127650513@1679112171107/An-example-of-the-tree-tensor-network-TTN-architecture-left-and-the-corresponding.png)
+![TTN](https://quantum-journal.org/wp-content/uploads/2023/03/ttn1.png)
 
 ## Pauli Propagation
 
