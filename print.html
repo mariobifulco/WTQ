@@ -1,0 +1,553 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>What The Quantum</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-9165e279.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-65ae053f.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">What The Quantum</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="approaches-to-quantum-computing"><a class="header" href="#approaches-to-quantum-computing">Approaches to Quantum Computing</a></h1>
+<p>Quantum Computing (QC) is all about tackling problems in a fundamentally different way compared to classical computing.</p>
+<p>The core idea is to leverage the phenomena of quantum mechanics—like <strong>superposition</strong> and <strong>entanglement</strong>—to dramatically speed up the process of finding a solution.</p>
+<p>Besides the goal of achieving faster results, the main hope is to be able to “express” more with quantum computers. This means having the right tools to represent and solve problems that are <strong>intrinsically non-classical</strong>. A classic example: running simulations of real-world quantum-level particle systems, which is currently impossible for even the largest classical supercomputers as systems get bigger.</p>
+<p>Unlike classical computing, where the transistor-based architecture is the universal standard, we currently don’t have a single standard way of building a quantum computer. This means every vendor is proposing their own technique for doing quantum, each coming with its own set of unique pros and cons. It’s a very exciting hardware race!</p>
+<p>These approaches can generally be categorized along two main axes:</p>
+<ul>
+<li><strong>Type of Hardware Technology Used</strong>
+<ul>
+<li>Superconductors (IBM, Google, IQM, DWave, Rigetti, …)</li>
+<li>Trapped ions (Quantinuum, IonQ, …)</li>
+<li>Neutral atoms (Pasqal, QuEra, …)</li>
+<li>Photons (Quandela, Xanadu, …)</li>
+<li>Semiconductor spin qubits (Intel, QuTech, …)</li>
+</ul>
+</li>
+<li><strong>Nature of the Computation</strong>
+<ul>
+<li><strong>Analog:</strong> The physical system described by the qubits evolves globally. <em>Think of this as a direct quantum simulator, where the hardware naturally mirrors the problem you’re trying to solve.</em></li>
+<li><strong>Digital:</strong> The physical system evolves locally, meaning we have precise control over individual qubits. <em>This is the familiar quantum circuit model, like stringing together logic gates step-by-step.</em></li>
+<li><strong>Mix</strong> (Often a combination of both, sometimes called a hybrid architecture).</li>
+</ul>
+</li>
+</ul>
+<h2 id="a-non-exhaustive-map-of-quantum-computing"><a class="header" href="#a-non-exhaustive-map-of-quantum-computing">A (Non-Exhaustive) Map of Quantum Computing</a></h2>
+<p><img src="imgs/q_map.png" alt="A map illustrating different quantum computing technologies and approaches"></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="analog-quantum-computing"><a class="header" href="#analog-quantum-computing">Analog Quantum Computing</a></h1>
+<p>When we talk about analog quantum computing, the main player is definitely <strong>D-Wave</strong> with its implementation of <strong>quantum annealing</strong>.</p>
+<p>The core idea behind this type of machine is to create a tool capable of solving a very <strong>specific class of problems</strong> [<strong>not all of them!</strong>].</p>
+<p>D-Wave’s computers are inherently designed for optimization tasks. The optimization problem is first encoded into the Quantum Processing Unit (QPU). After this setup phase, the system naturally evolves towards the state of <strong>lowest energy/minimum entropy</strong>, which magically represents the solution to the problem.</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Quant-annl.jpg" alt="A graph illustrating the quantum annealing process, where the system (Hamiltonian) is slowly transitioned from an initial state to the final problem state, allowing it to settle into the lowest energy minimum (the solution)."></p>
+<h2 id="from-csps-to-annealing"><a class="header" href="#from-csps-to-annealing">From CSPs to Annealing</a></h2>
+<p>Let’s imagine a generic <strong>Constraint Satisfaction Problem (CSP)</strong> in a minimization form:</p>
+<p>$$\min f(x)\quad s.t.\quad Ax = b$$</p>
+<p>The QPU can only natively solve problems in the <strong>QUBO</strong> format (Quadratic Unconstrained Binary Optimization). The problem shown above isn’t guaranteed to have only binary variables and definitely has constraints, so we need to transform it into a QUBO.</p>
+<p>This can be done in two ‘simple’ steps (we say simple, but in practice, it can be quite tricky!):</p>
+<ul>
+<li><strong>Binarize the variables</strong> (using the most appropriate encoding you choose).</li>
+<li><strong>Use Lagrangian relaxation</strong> to incorporate the constraints as penalties within the objective function.</li>
+</ul>
+<p>The resulting QUBO problem is essentially a square, upper-triangular matrix, and can generally be seen as \(\min x^\top Qx\), where \(Q\) is the matrix and \(x\) is the vector of binary variables.</p>
+<p><strong>Fun fact:</strong> Solving a generic QUBO is an <strong>NP-complete problem</strong> (yikes!!), which is why we need quantum speed-up for the toughest instances.</p>
+<p>QUBO problems can easily be visualized as graphs—the matrix \(Q\) represents the weights of the connections (edges). The challenge is that the QPU for annealing has a <strong>fixed physical topology</strong>, usually represented by a sparse graph (like the <em>Chimera</em> or <em>Pegasus</em> graphs in D-Wave’s systems).</p>
+<p>Before running the annealing process, you therefore need to map the problem’s <em>logical</em> graph onto the QPU’s fixed <em>physical</em> graph. This step is called <strong>minor embedding</strong> (and guess what? It’s also NP-complete!).</p>
+<p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmxYEXCPrN-KLhv4jYczCHAPf4HAmjKxALYA&amp;s" alt="An image illustrating minor embedding: a simpler logical graph (the problem) is mapped onto a more complex, fixed physical graph (the QPU hardware) by using chains of physical qubits to represent a single logical qubit."></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="digital-quantum-computing"><a class="header" href="#digital-quantum-computing">Digital Quantum Computing</a></h1>
+<p>When we talk about digital quantum computing, we are referring to the <strong>gate-based</strong> world. This is where most of the quantum players are found, and each vendor showcases its particular strengths:</p>
+<ul>
+<li><strong>IBM:</strong> Focuses on the sheer <strong>number of qubits</strong> they can build (scaling up).</li>
+<li><strong>Quantinuum (using trapped ions):</strong> Focuses on a <strong>low error rate</strong> (high fidelity).</li>
+<li><strong>Google:</strong> Focuses on being able to demonstrate <strong>quantum advantage</strong> (solving a problem faster than the best classical machine).</li>
+</ul>
+<h2 id="what-are-quantum-gates"><a class="header" href="#what-are-quantum-gates">What are Quantum Gates?</a></h2>
+<p>Unlike classical bits, qubits are much more complex objects because they exist in a superposition of states. Due to this complexity, most of the fundamental gates act as <strong>single-qubit operations</strong> . (In the classical world, bits are “just” on or off, and you combine them with gates like AND, OR, and NOT to compute.)</p>
+<p>Here is a list of quantum gates (non-exhaustive, but they form a <strong>universal set</strong>):</p>
+<ul>
+<li>
+<p><strong>Controlled-NOT (C-Not) Gate</strong> (The key 2-qubit gate for creating entanglement!):</p>
+<p>$$\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \
+0 &amp; 1 &amp; 0 &amp; 0 \
+0 &amp; 0 &amp; 0 &amp; 1 \
+0 &amp; 0 &amp; 1 &amp; 0
+\end{bmatrix}$$</p>
+</li>
+<li>
+<p><strong>Hadamard (H) Gate</strong> (The most famous gate—it puts a qubit into a perfect superposition):</p>
+<p>$$\frac{1}{\sqrt 2}\begin{bmatrix}
+1 &amp; 1 \
+1 &amp; -1
+\end{bmatrix}$$</p>
+</li>
+<li>
+<p><strong>Phase (S) Gate</strong> (A single-qubit rotation):</p>
+<p>$$\begin{bmatrix}
+1 &amp; 0 \
+0 &amp; i
+\end{bmatrix}$$</p>
+</li>
+<li>
+<p><strong>T Gate</strong> (Also a single-qubit rotation, but a very specific one):</p>
+<p>$$\begin{bmatrix}
+1 &amp; 0 \
+0 &amp; e^{i\pi / 4}
+\end{bmatrix}$$</p>
+</li>
+</ul>
+<p>The first three gates (C-NOT, H, S) are part of the <strong>Clifford set</strong> and can actually be simulated fairly easily on a classical computer. However, the addition of the <strong>T gate</strong> is crucial because it makes efficient classical simulation impossible—it’s what gives the system its full quantum power!</p>
+<p>Unlike analog systems (like annealing), these gates are <strong>universal</strong>, meaning they can theoretically express any type of quantum computation.</p>
+<p>The presence of gates allows us to control individual qubits at every moment. This <strong>local control</strong> is what makes this type of computation “digital” (similar to how classical circuits work, just with far more powerful components).</p>
+<h2 id="why-not-use-only-gates"><a class="header" href="#why-not-use-only-gates">Why Not Use Only Gates?</a></h2>
+<p>Long story short: you absolutely <strong>could</strong>, and people do! (For example, using a process called <strong>Trotterization</strong> to emulate annealing on a gate-based machine.)</p>
+<p>The main issue is that current qubits are still few and highly prone to error (they are <em>noisy</em>). So, while gate-based systems are universal, they are still far from the performance levels you can achieve by using more specialized quantum computing approaches for specific tasks with tailor-made tools (like using annealing for optimization). We are waiting for better hardware!</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="typical-gate-based-problems"><a class="header" href="#typical-gate-based-problems">Typical Gate-Based Problems</a></h1>
+<h2 id="quantum-kernel"><a class="header" href="#quantum-kernel">Quantum Kernel</a></h2>
+<p>Kernels have been used long before quantum computers came along. Their main purpose is to map examples (data points) into a <strong>higher-dimensional space</strong>, where classification tasks become much simpler.</p>
+<p>They are famously used in <strong>Support Vector Machines (SVMs)</strong> to classify non-linearly separable data, and in <strong>Convolutional Neural Networks (CNNs)</strong> to extract features from images.</p>
+<pre><code class="language-python">from qiskit_ibm_runtime import SamplerV2
+from qiskit.circuit.library import zz_feature_map
+from qiskit_machine_learning.kernels import FidelityQuantumKernel
+from qiskit_machine_learning.state_fidelities import ComputeUncompute
+
+sampler = SamplerV2(mode=backend) # Any backend, IBM, IQM, Simulation on CPU/GPU
+FidelityQuantumKernel(
+    fidelity=ComputeUncompute(sampler=sampler), 
+    # zz_feature_map is just one possible map
+    feature_map=zz_feature_map(feature_dimension=3, reps=2, entanglement='linear')
+)
+</code></pre>
+<p><img src="https://quantum.cloud.ibm.com/assets-docs-learning/_next/image?url=%2Fdocs%2Fimages%2Fapi%2Fqiskit%2Fcircuit_library-5.avif&amp;w=3840&amp;q=75" alt="feature_map.png"></p>
+<p>Quantum kernels simplify classification incredibly fast because they map the data into a space whose dimensions grow <strong>exponentially</strong> with the number of features (qubits) used. This exponentially large space is what potentially gives us a quantum advantage in Machine Learning!</p>
+<p><strong>Defining a ‘Good’ Kernel:</strong></p>
+<p>To be useful, a quantum kernel must strike a balance:</p>
+<ul>
+<li><strong>Complex enough to be non-simulable:</strong> If it can be simulated efficiently classically, why bother with a quantum computer? Currently, this complexity often means it’s not yet efficiently executable on noisy real quantum hardware.</li>
+<li><strong>Expressive enough to be helpful:</strong> Unlike classical kernels, quantum ones are formed by first building a <strong>feature map</strong> (which encodes the classical data into a quantum state) and then using that map in a <strong>compute-uncompute</strong> procedure (a neat trick that leverages the <strong>reversible nature of quantum operations</strong>!).</li>
+<li><strong>The big question:</strong> How do we figure out if a feature map is actually <em>good</em> for a given dataset? This is a major area of research right now!</li>
+</ul>
+<h2 id="grover-search"><a class="header" href="#grover-search">Grover Search</a></h2>
+<p>Grover’s algorithm is a quantum search algorithm designed for an <strong>unsorted set of items</strong>. <em>Think of it like looking for a name in a phone book where the names are randomly scattered.</em></p>
+<p>Intuitively, what the algorithm does is repeatedly sample the search space, but cleverly making the probability of measuring the target states <strong>collapse</strong> onto the desired examples. It’s essentially an amplitude amplification process.</p>
+<pre><code class="language-python">from qiskit import QuantumCircuit
+from qiskit.circuit.library import ZGate, MCMTGate
+
+def grover_oracle(marked_states):
+    if not isinstance(marked_states, list):
+        marked_states = [marked_states]
+    num_qubits = len(marked_states[0])
+    qc = QuantumCircuit(num_qubits)
+    for target in marked_states:
+        rev_target = target[::-1]
+        zero_inds = [ind for ind in range(num_qubits) if rev_target.startswith("0", ind)]
+        qc.x(zero_inds)
+        # MCMTGate is a Multi-Controlled Multi-Target gate
+        qc.compose(MCMTGate(ZGate(), num_qubits - 1, 1), inplace=True)
+        qc.x(zero_inds)
+    return qc
+
+marked_states = ["1000", "0100", "0010", "0001"] # These are the solutions we are looking for
+oracle = grover_oracle(marked_states)
+</code></pre>
+<p><img src="https://www.researchgate.net/publication/352678726/figure/fig1/AS:11431281274618704@1725032307983/Quantum-circuit-of-Grovers-algorithm-A-quantum-circuit-implementing-Grovers-algorithm.tif" alt="Grover circuit"></p>
+<p>While incredibly useful and relatively easy to implement, Grover’s algorithm provides <strong>“only” a quadratic speed-up</strong> (it takes \(O(\sqrt{N})\) steps instead of \(O(N)\) classically). This is a big deal, but it means it doesn’t fundamentally change the complexity class of the problems it’s used for (unlike Shor’s algorithm, which we’ll see next!).</p>
+<p><em>If you want to dive deeper, check out 3Blue1Brown’s excellent videos:</em></p>
+<p><a href="https://www.youtube.com/watch?v=RQWpF2Gb-gU&amp;t=1981s">3B1B - Grover</a></p>
+<p><a href="https://www.youtube.com/watch?v=Dlsa9EBKDGI">3B1B - Grover DLC</a></p>
+<h2 id="qaoa-quantum-approximate-optimization-algorithm"><a class="header" href="#qaoa-quantum-approximate-optimization-algorithm">QAOA (Quantum Approximate Optimization Algorithm)</a></h2>
+<p>QAOA is a gate-based optimization method that also returns <strong>approximate solutions</strong>.</p>
+<p>It falls under the family of <strong>Variational Quantum Algorithms (VQAs)</strong>. This means the quantum circuit is <strong>parameterized</strong> (it has tunable knobs) and interacts with a classical computer in a loop to optimize those circuit parameters.</p>
+<ol>
+<li><strong>Quantum Part:</strong> Runs the circuit and measures the output.</li>
+<li><strong>Classical Part:</strong> Takes the measurement, calculates the cost (how good the solution was), and decides how to adjust the parameters.</li>
+</ol>
+<p>Once the parameters are optimized, they allow us to get a high-quality “solution” to the problem.</p>
+<pre><code class="language-python">from qiskit.quantum_info import SparsePauliOp
+from qiskit.circuit.library import QAOAAnsatz
+
+cost_hamiltonian = SparsePauliOp.from_list([('IZZ', 1.0), ('ZIZ', 1.0), ('ZZI', 1.0)])
+circuit = QAOAAnsatz(cost_operator=cost_hamiltonian, reps=2).decompose(reps=2)
+circuit.measure_all()
+</code></pre>
+<p><img src="https://miro.medium.com/1*C49naMOXKuQ-jChTrArz2Q.png" alt="QAOA"></p>
+<p>The circuit structure is straightforward, but performance tends to degrade significantly as the problems get larger. This is a common issue with VQAs on current-generation hardware.</p>
+<p>There are alternatives, such as NDAR or Trotterization (which we mentioned earlier), that researchers are developing to try and improve on QAOA’s performance.</p>
+<h2 id="shor-factorization"><a class="header" href="#shor-factorization">Shor Factorization</a></h2>
+<p>Shor’s algorithm is probably the most famous one when discussing quantum computing.</p>
+<p>The reason it’s so popular (and feared) is that it dramatically changes the complexity class of factorization: from a presumed <strong>exponential</strong> time to <strong>poly-logarithmic</strong> time. This is the ultimate “game-changer” for cryptography, as it would break the widely used RSA encryption scheme.</p>
+<p>Shor’s algorithm for factoring the number 15</p>
+<p><img src="https://stem.mitre.org/quantum/quantum-algorithms/images/shor-3.png" alt="Shor"></p>
+<p>Currently, there are no readily available, pre-built implementations of Shor’s algorithm that can factor large numbers, and the algorithm itself is constantly being improved and optimized in academic literature.</p>
+<p>In the literature, there are also other algorithms besides Shor’s that are presumed to be better.</p>
+<p>The main issue with Shor’s algorithm is that it requires (to factor RSA-2048) at least <strong>1 million noisy qubits</strong> (until last year, it needed 20 million).</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="analogdigital-quantum-computing-neutral-atoms"><a class="header" href="#analogdigital-quantum-computing-neutral-atoms">Analog/Digital Quantum Computing (Neutral Atoms)</a></h1>
+<p>The neutral atom approach (or cold atom approach) seems really promising because of several key advantages:</p>
+<ul>
+<li><strong>Works at room temperature:</strong> Unlike superconducting qubits (which need near absolute zero), neutral atom systems can operate without needing super expensive cryogenics. This is a huge practical advantage!</li>
+<li><strong>Compact setup:</strong> Everything the quantum computer needs to function can be contained in a relatively small space.</li>
+<li><strong>Easier local control:</strong> It should allow for more straightforward <strong>local control</strong> (controlling individual qubits) compared to pure annealing systems.</li>
+<li><strong>Free topology:</strong> Unlike annealing-based QPUs (which have fixed, sparse connectivity), the qubit topology here is <strong>free</strong> (or reconfigurable). This means you can arrange the qubits in 1D, 2D, or 3D lattices, which is fantastic for matching the problem structure to the hardware.</li>
+</ul>
+<p>However, there are still some major challenges:</p>
+<ul>
+<li><strong>Scalability uncertainty:</strong> We don’t yet know how far this technology can scale in terms of total qubit count and performance.</li>
+<li><strong>Atom positioning:</strong> Accurately and stably positioning the atoms using laser pulses (optical tweezers) remains an <strong>NP-complete problem</strong>. Getting those atoms where you need them, every single time, is tricky!</li>
+</ul>
+<p>We can also run QAOA on this architecture, but I haven’t looked into the specific details yet. Recently, a simulator was released that allows for prototyping, keeping their quantum backend in mind, which is a big step for developers.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="quantum-backends"><a class="header" href="#quantum-backends">Quantum backends</a></h1>
+<h2 id="ibm-quantum"><a class="header" href="#ibm-quantum">IBM quantum</a></h2>
+<pre><code class="language-python">def get_quantum_backend():
+    from qiskit import generate_preset_pass_manager
+    from qiskit_ibm_runtime import QiskitRuntimeService
+    backend = QiskitRuntimeService(channel='ibm_cloud', token=TOKEN_IBM, instance=CRN_IBM).least_busy()
+    pm = generate_preset_pass_manager(backend=backend, optimization_level=3)
+    return backend, pm
+</code></pre>
+<h2 id="ibm-cpu"><a class="header" href="#ibm-cpu">IBM CPU</a></h2>
+<pre><code class="language-python">def get_classical_backend():
+    from qiskit_aer import AerSimulator
+    from qiskit import generate_preset_pass_manager
+    backend = AerSimulator(method='matrix_product_state')
+    pm = generate_preset_pass_manager(backend=backend, optimization_level=3)
+    return backend, pm
+</code></pre>
+<h2 id="iqm-quantum"><a class="header" href="#iqm-quantum">IQM quantum</a></h2>
+<pre><code class="language-python"># Adapter to use IQM backend with pre-exhisting Qiskit code
+def get_iqm_quantum_backend():
+    from types import SimpleNamespace
+    from iqm.qiskit_iqm import IQMProvider, transpile_to_IQM
+    backend = IQMProvider(SERVER_IQM, token=TOKEN_IQM).get_backend()
+    run = lambda x: transpile_to_IQM(x, backend, optimization_level=3)
+    pm = SimpleNamespace(run=run)
+    return backend, pm
+</code></pre>
+<h2 id="dwave-hybrid-solver"><a class="header" href="#dwave-hybrid-solver">DWave hybrid solver</a></h2>
+<pre><code class="language-python">from dwave.system.samplers import LeapHybridCQMSampler
+
+solver = LeapHybridCQMSampler()
+cqm_sampleset = solver.sample(cqm, num_reads=100)
+</code></pre>
+<h2 id="dwave-quantum"><a class="header" href="#dwave-quantum">DWave quantum</a></h2>
+<pre><code class="language-python">import dimod
+from dwave.system import EmbeddingComposite, DWaveSampler
+
+bqm, _default_back_function = dimod.cqm_to_bqm(cqm)
+solver = EmbeddingComposite(DWaveSampler())
+bqm_sampleset = solver.sample(bqm, num_reads=100)
+</code></pre>
+<h2 id="dwave-cpu"><a class="header" href="#dwave-cpu">DWave CPU</a></h2>
+<pre><code class="language-python">import dimod
+from dwave.samplers import SimulatedAnnealingSampler
+
+bqm, _default_back_function = dimod.cqm_to_bqm(cqm)
+solver = SimulatedAnnealingSampler()
+bqm_sampleset = solver.sample(bqm, num_reads=100)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="quantum-error"><a class="header" href="#quantum-error">Quantum Error</a></h1>
+<p>The quantum computers currently available are heavily affected by noise (or decoherence).</p>
+<p>This is why we talk about <strong>NISQ</strong> (Noisy Intermediate-Scale Quantum) devices. “Intermediate-Scale” refers to the fact that they have a relatively small number of qubits, and “Noisy” means the qubits are highly susceptible to errors.</p>
+<p>The main goal for those building quantum computers is to achieve <strong>fault-tolerant</strong> devices.</p>
+<p>A fault-tolerant quantum computer is resilient to errors in the physical qubits. It allows us to work entirely with <strong>logical qubits</strong>, which are subject only to the probability distribution of the quantum circuit itself, without interference from hardware noise. This is the Holy Grail of quantum computing!</p>
+<p>Currently, efforts to make quantum computer results as robust as possible rely on two main strategies: <strong>error mitigation</strong> and <strong>error correction</strong>.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="quantum-error-mitigation-qem"><a class="header" href="#quantum-error-mitigation-qem">Quantum Error Mitigation (QEM)</a></h1>
+<p>This is a set of techniques used to try and minimize the error (or noise) currently affecting our noisy quantum systems.</p>
+<p>IBM provides some pre-built techniques that are accessible via the <strong>“resilience-level”</strong> parameter in their runtime environments.</p>
+<p>We typically discuss QEM in the context of gate-based quantum models.</p>
+<h2 id="twirled-readout-error-extinction-trex--measurement-twirling"><a class="header" href="#twirled-readout-error-extinction-trex--measurement-twirling">Twirled Readout Error eXtinction (TREX) / Measurement Twirling</a></h2>
+<p>Resilience <strong>Level 1</strong></p>
+<p>This technique estimates the error in the measurement gates across the various qubits. It is particularly useful for circuits that involve many measurement operations (like those found in quantum kernel algorithms).</p>
+<p>Circuits that have only a single measurement qubit (e.g., in a purely quantum classification scenario) generally do not benefit much from this technique.</p>
+<h2 id="zero-noise-extrapolation-zne"><a class="header" href="#zero-noise-extrapolation-zne">Zero Noise Extrapolation (ZNE)</a></h2>
+<p>Resilience <strong>Level 2</strong></p>
+<p>The quantum circuit is executed multiple times, with an increasing number of <strong>identity operations</strong> (often implemented using double CNOT or double SWAP gates) strategically inserted. This makes the circuit “deeper” without changing its intended function. This allows us to gather data on how the noise scales with the circuit depth, and then mathematically <strong>extrapolate</strong> the measured result back to the theoretical zero-noise point.</p>
+<h2 id="gate-twirling"><a class="header" href="#gate-twirling">Gate Twirling</a></h2>
+<p>Resilience <strong>Level 2</strong></p>
+<p>This involves performing preliminary tests to understand exactly how much a single specific gate (like a CNOT or an arbitrary rotation) contributes to the overall error in the circuit. By characterizing the average effect of the noise on individual gates, we can improve the accuracy of our final result when analyzing the full circuit.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="quantum-error-correction-qec"><a class="header" href="#quantum-error-correction-qec">Quantum Error Correction (QEC)</a></h1>
+<p>The core idea behind QEC is to use multiple physical qubits to represent a single <strong>logical qubit</strong>. This redundancy is what allows us to detect and fix errors.</p>
+<p>QEC is most often associated with gate-based models, but similar techniques can also be used in annealing models.</p>
+<p>QEC is typically described using the code notation \([[n, k, d]]\), where:</p>
+<ul>
+<li>\(n\) is the number of <strong>physical qubits</strong> used.</li>
+<li>\(k\) is the number of <strong>logical qubits</strong> produced (the number of useful qubits you get out).</li>
+<li>\(d\) is the <strong>error detection distance</strong>. It means we can detect up to \(d - 1\) errors and correct up to \(\lfloor\frac{d-1}{2}\rfloor\) errors.</li>
+</ul>
+<h2 id="naive-qec-gate-based"><a class="header" href="#naive-qec-gate-based">Naive QEC (Gate-Based)</a></h2>
+<p>For gate-based models, the general estimate is that roughly <strong>one thousand physical qubits</strong> might be needed to create one robust, error-free logical qubit. This enormous ratio is what makes fault tolerance such a difficult engineering challenge.</p>
+<h2 id="quantum-annealing-correction-qac"><a class="header" href="#quantum-annealing-correction-qac">Quantum Annealing Correction (QAC)</a></h2>
+<p>This is a specific error correction method designed for annealing hardware. In QAC, every logical variable is associated with <strong>three physical qubits</strong> in the system, and correction is achieved using a <strong>majority vote</strong> among the three.</p>
+<p>In a way, the necessary <strong>minor embedding</strong> process can also be considered an error reduction technique, as it creates chains of physical qubits (of arbitrary length) to represent all the required logical connections. If a link in the chain fails, the others in the chain can help mask the error.</p>
+<p>QAC can also be applied as a post-processing step to the minor embedding result, but the downside is that it significantly reduces the size of the problem that can be represented on the machine.</p>
+<p>This is essentially the \([[3, 1, 3]]\) code (3 physical qubits, 1 logical qubit, distance 3).</p>
+<h2 id="gross-code-qec"><a class="header" href="#gross-code-qec">Gross Code QEC</a></h2>
+<p>Proposed by IBM for their superconducting models, this code aims for a much better ratio. It requires <strong>144 physical qubits</strong> to represent <strong>12 logical qubits</strong>.</p>
+<p>This represents the \([[144, 12, 12]]\) code.</p>
+<h2 id="iceberg-code-qec"><a class="header" href="#iceberg-code-qec">Iceberg Code QEC</a></h2>
+<p>Introduced by Quantinuum for their trapped ion machines, this scheme uses only <strong>two additional qubits</strong> to help correct \(k\) data qubits.</p>
+<p>This represents the \([[k + 2, k, 2]]\) code.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="simulating-quantum-computing"><a class="header" href="#simulating-quantum-computing">Simulating Quantum Computing</a></h1>
+<p>To prototype and test ideas, it is essential to make use of <strong>simulators</strong>. They come in various forms and their usefulness depends on several factors:</p>
+<ul>
+<li><strong>Type of computation being simulated:</strong> Are you modeling a gate-based circuit, an annealing process (like D-Wave), or a mixed/analog-digital approach?</li>
+<li><strong>Available hardware:</strong> What resources do you have? Are you running the simulation on a <strong>CPU</strong>, <strong>GPU</strong>, or a specialized accelerator?</li>
+<li><strong>Output quality guarantees:</strong> Do you need a perfect, noise-free result, or do you need to simulate a realistic quantum device <em>with</em> noise to perform <strong>error mitigation</strong> tests? (i.e., simulating with or without noise).</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="simulators-for-anneal-based-quantum-computing"><a class="header" href="#simulators-for-anneal-based-quantum-computing">Simulators for Anneal-Based Quantum Computing</a></h1>
+<h2 id="simulated-annealing"><a class="header" href="#simulated-annealing">Simulated Annealing</a></h2>
+<p>D-Wave provides a classical version of quantum annealing called <strong>Simulated Annealing</strong>. In this classical approach, there is <strong>no quantum tunneling</strong> to help the system escape local minima; instead, it relies purely on thermal fluctuations. This is useful for comparison and classical testing.</p>
+<h2 id="hybrid-solvers"><a class="header" href="#hybrid-solvers">Hybrid Solvers</a></h2>
+<p>Before moving to closed-source solutions, D-Wave offered a product called <strong>Qbsolv</strong>. This was a <strong>hybrid solver</strong> that combined classical techniques (like Tabu Search) with quantum annealing runs to search for the solution. This is necessary because real-world problems are often too large or too dense (too many connections) to fit onto the sparse topology of the quantum chip.</p>
+<h2 id="quantum-inspired-computing"><a class="header" href="#quantum-inspired-computing">Quantum-Inspired Computing</a></h2>
+<p>An alternative to D-Wave comes from Fujitsu with their <strong>Digital Annealer</strong>. The local simulator for this technology can handle up to 1,000 variables, while the real-time solvers are available via API.</p>
+<p>This represents (to my knowledge) the only major alternative to D-Wave in the annealing space. The key difference is that the process here is always <strong>classical</strong>, but it is <strong>quantum-inspired</strong>. Although it’s not entirely clear how this translates into practical, measurable differences compared to high-performance classical optimization methods, the architecture is specifically designed to efficiently solve the same QUBO-type problems.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="simulators-for-gate-based-quantum-computing"><a class="header" href="#simulators-for-gate-based-quantum-computing">Simulators for Gate-Based Quantum Computing</a></h1>
+<h2 id="naive-simulation-state-vector-simulation"><a class="header" href="#naive-simulation-state-vector-simulation">Naive Simulation (State Vector Simulation)</a></h2>
+<p>This method consists of creating the matrix that describes the entire quantum circuit. The computation of the final state (the output) then translates into a single matrix multiplication operation.</p>
+<p>The problem with this technique is that the matrix dimension grows <strong>exponentially</strong> with the number of qubits ($2^n \times 2^n$ matrix size, where $n$ is the number of qubits). This makes the method impractical for circuits with many qubits (typically anything over 30-40 qubits is impossible to simulate even on supercomputers).</p>
+<h2 id="tensor-network-tn-simulation"><a class="header" href="#tensor-network-tn-simulation">Tensor Network (TN) Simulation</a></h2>
+<p>Tensor networks are mathematical tools primarily designed for the simulation of <strong>many-body quantum problems</strong>.</p>
+<p>The operation of <strong>tensor contraction</strong> allows the network to be simplified, thus streamlining all subsequent calculations.</p>
+<p>There are different simplification operations, and the <strong>order</strong> in which they are performed is highly relevant to the quality and efficiency of the result.</p>
+<h3 id="cpu-based-tn-matrix-product-state---mps"><a class="header" href="#cpu-based-tn-matrix-product-state---mps">CPU-Based TN (Matrix Product State - MPS)</a></h3>
+<p>The <strong>Matrix Product State (MPS)</strong> is a one-dimensional version of tensor networks. It is particularly useful for simulating circuits with <strong>low entanglement</strong> (or low “area law” scaling).</p>
+<p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOkMDR80pUpw_Lx8duxvzDbqq_Va87qQ7fEw&amp;s" alt="MPS"></p>
+<h3 id="gpu-based-tn-tree-tensor-network---ttn--mera"><a class="header" href="#gpu-based-tn-tree-tensor-network---ttn--mera">GPU-Based TN (Tree Tensor Network - TTN / MERA)</a></h3>
+<p>These often involve multi-dimensional versions of the tensor network, which are typically executed on <strong>GPUs</strong> for greater efficiency.</p>
+<p>You can specify the maximum dimension of the <strong>bonds</strong> (the links between the network nodes, often called the <em>bond dimension</em> or $\chi$). This allows you to limit the complexity of the circuit, but it also introduces an approximation error into the final measurement result (a trade-off between speed and accuracy).</p>
+<p>If the required bond dimension is too large, the calculation is often truncated using <strong>Singular Value Decomposition (SVD)</strong>.</p>
+<p><img src="https://www.researchgate.net/publication/369332982/figure/fig4/AS:11431281127650513@1679112171107/An-example-of-the-tree-tensor-network-TTN-architecture-left-and-the-corresponding.png" alt="TTN"></p>
+<h2 id="pauli-propagation"><a class="header" href="#pauli-propagation">Pauli Propagation</a></h2>
+<p>I am not familiar with this specific technique.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>
