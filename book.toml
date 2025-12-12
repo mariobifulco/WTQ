@@ -1,0 +1,8 @@
+[book]
+authors = ["Mario Bifulco"]
+language = "en"
+src = "src"
+title = "What The Quantum"
+
+[output.html]
+mathjax-support = true
